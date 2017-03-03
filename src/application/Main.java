@@ -1,6 +1,7 @@
 package application;
 	
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
@@ -20,12 +21,18 @@ public class Main extends Application {
 			btnSettings.setText("Einstellungen");
 			Button btnEnd=new Button();
 			btnEnd.setText("Spiel beenden");
-			
+			double buttonsize=250;
 			StackPane root = new StackPane();
-			
+			btnStart.setMinWidth(buttonsize);
+			btnSettings.setMinWidth(buttonsize);
+			btnEnd.setMinWidth(buttonsize);
+			btnStart.setTranslateY(-45);
+			btnEnd.setTranslateY(+45);
 			root.getChildren().add(btnStart);
-//			root.getChildren().add(btnSettings);
-//			root.getChildren().add(btnEnd);
+			
+			root.getChildren().add(btnSettings);
+			root.getChildren().add(btnEnd);
+			
 			btnStart.setOnAction(new EventHandler<ActionEvent>() {
 				 
 	            @Override
@@ -36,6 +43,21 @@ public class Main extends Application {
 	                primaryStage.setScene(scene);
 	            }
 	        });
+			
+			btnSettings.setOnAction(new EventHandler<ActionEvent>() {
+				 
+	            @Override
+	            public void handle(ActionEvent event) {
+	                try {
+						stop();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	            }
+	        });
+			
+			
 
 			
 			Scene scene = new Scene(root,400,400);
@@ -49,6 +71,8 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	
 	public static void main(String[] args) {
 		launch(args);
