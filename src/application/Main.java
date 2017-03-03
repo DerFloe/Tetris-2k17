@@ -14,7 +14,7 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
-		try {// bsdfsdsfkdahfia
+		try {// bsdfsas
 			Button btnStart=new Button();
 			btnStart.setText("Spiel starten");
 			Button btnSettings=new Button();
