@@ -1,6 +1,7 @@
 package application;
 
 import javax.swing.*;
+import com.spg.game.*;
 import sun.audio.*;
 import java.awt.event.*;
 import java.io.*;
@@ -14,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.DialogEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
@@ -52,8 +54,17 @@ public class Main extends Application {
 			Alert info = new Alert(AlertType.INFORMATION);
 			info.setTitle("Information");
 			info.setContentText("The game is currently under developement and the code is not in its final state. There might be a few bugs.");
+			info.setOnCloseRequest(new EventHandler<DialogEvent>(){
+
+				@Override
+				public void handle(DialogEvent event) {
+					// TODO Auto-generated method stub
+					mPlayer.stop();
+				}
+				
+			});
 			info.show();
-			VideoPlayer v=new VideoPlayer();
+			
 			
 
 			}
@@ -88,6 +99,13 @@ public class Main extends Application {
 	                StackPane root2=new StackPane();
 	                Scene scene =new Scene(root2,1280,720);
 	                primaryStage.setScene(scene);
+	                Tetris2k17 t=new Tetris2k17();
+	                try {
+						t.start(primaryStage);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            }
 	        });
 			
