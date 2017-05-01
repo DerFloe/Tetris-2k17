@@ -1,7 +1,7 @@
-package application;
+package com.tetris.main;
 
 import javax.swing.*;
-import com.spg.game.*;
+import com.tetris.game.*;
 import sun.audio.*;
 import java.awt.event.*;
 import java.io.*;
@@ -71,11 +71,11 @@ public class Main extends Application {
 			});
 			
 			Button btnStart=new Button();
-			btnStart.setText("Spiel starten");
+			btnStart.setText("> Spiel starten <");
 			Button btnSettings=new Button();
-			btnSettings.setText("Einstellungen");
+			btnSettings.setText("> Einstellungen <");
 			Button btnEnd=new Button();
-			btnEnd.setText("Spiel beenden");
+			btnEnd.setText("> Spiel beenden <");
 			double buttonsize=250;
 			StackPane root = new StackPane();
 			btnStart.setMinWidth(buttonsize);
@@ -91,23 +91,23 @@ public class Main extends Application {
 			root.getChildren().add(btnSettings);
 			root.getChildren().add(btnEnd);
 			root.getChildren().add(infob);
-			btnStart.setOnAction(new EventHandler<ActionEvent>() {
+//			btnStart.setOnAction(new EventHandler<ActionEvent>() {
 				 
-	            @Override
-	            public void handle(ActionEvent event) {
-	                System.out.println("Game started!");
-	                StackPane root2=new StackPane();
-	                Scene scene =new Scene(root2,1280,720);
-	                primaryStage.setScene(scene);
-	                Tetris2k17 t=new Tetris2k17();
-	                try {
-						t.start(primaryStage);
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-	            }
-	        });
+//	            @Override
+//	            public void handle(ActionEvent event) {
+//	                System.out.println("Game started!");
+//	                StackPane root2=new StackPane();
+//	                Scene scene =new Scene(root2,1280,720);
+//	                primaryStage.setScene(scene);
+//	                Tetris2k17 t=new Tetris2k17();
+//	                try {
+//						t.start(primaryStage);
+//					} catch (Exception e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//	            }
+//	        });
 			
 			btnSettings.setOnAction(new EventHandler<ActionEvent>() {
 				 
