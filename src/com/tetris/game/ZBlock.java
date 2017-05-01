@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
  * @author florianhofer
  *
  */
-public class IBlock extends Block{
+public class ZBlock {
 
 	/**
 	 * 
@@ -22,19 +22,22 @@ public class IBlock extends Block{
 	private Particle p2;
 	private Particle p3;
 	
-	public IBlock() {
+	public ZBlock() {
 		// TODO Auto-generated constructor stub
 		this.particles=new ArrayList<>();
-		this.start=new Particle(Color.AQUA);
+		this.start=new Particle(Color.RED);
 		
-		this.p1=new Particle(Color.AQUA);
-		this.p2=new Particle(Color.AQUA);
-		this.p3=new Particle(Color.AQUA);
+		this.p1=new Particle(Color.RED);
+		this.p2=new Particle(Color.RED);
+		this.p3=new Particle(Color.RED);
+		
+		
+		
 		
 		this.p1.setLinksVon(this.p2);
 		this.p2.setRechtsVon(this.p1);
-		this.p2.setLinksVon(this.start);
-		this.start.setRechtsVon(this.p2);
+		this.p2.setUeber(this.start);
+		this.start.setUnter(this.p2);
 		this.start.setLinksVon(this.p3);
 		this.p3.setRechtsVon(this.start);
 		

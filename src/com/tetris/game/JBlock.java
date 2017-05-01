@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
  * @author florianhofer
  *
  */
-public class JBlock {
+public class JBlock extends Block{
 
 	/**
 	 * 
@@ -27,9 +27,9 @@ public class JBlock {
 		this.particles=new ArrayList<>();
 		this.start=new Particle(Color.BLUE);
 		
-		this.p1=new Particle(Color.AQUA);
-		this.p2=new Particle(Color.AQUA);
-		this.p3=new Particle(Color.AQUA);
+		this.p1=new Particle(Color.BLUE);
+		this.p2=new Particle(Color.BLUE);
+		this.p3=new Particle(Color.BLUE);
 		
 		
 		
