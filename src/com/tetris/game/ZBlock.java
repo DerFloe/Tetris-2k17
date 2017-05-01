@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
  * @author florianhofer
  *
  */
-public class ZBlock {
+public class ZBlock extends Block{
 
 	/**
 	 * 
