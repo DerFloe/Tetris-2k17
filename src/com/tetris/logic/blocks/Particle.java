@@ -1,9 +1,10 @@
 /**
  * 
  */
-package com.tetris.game;
+package com.tetris.logic.blocks;
 
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 /**
  * @author florianhofer
@@ -14,6 +15,11 @@ public class Particle {
 	/**
 	 * 
 	 */
+	private static int counter = -1;
+
+	    // Instanzvariable
+	private int num;
+	private Rectangle r;
 	private Color color;
 	private Particle rechtsVon;
 	private Particle linksVon;
@@ -21,7 +27,7 @@ public class Particle {
 	private Particle ueber;
 	public Particle() {
 		// TODO Auto-generated constructor stub
-		this(Color.RED);
+		this(Color.WHITE);
 		
 		
 	}
@@ -29,6 +35,8 @@ public class Particle {
 	public Particle(Color color) {
 		super();
 		this.color = color;
+		counter++;
+        num = counter;
 	}
 
 	/**
@@ -77,6 +85,18 @@ public class Particle {
 
 	public void setUeber(Particle ueber) {
 		this.ueber = ueber;
+	}
+
+	public Rectangle getR() {
+		return r;
+	}
+
+	public void setR(Rectangle r) {
+		this.r = r;
+	}
+
+	public int getNum() {
+		return num;
 	}
 	
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.tetris.game;
+package com.tetris.logic.blocks;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
  * @author florianhofer
  *
  */
-public class SBlock extends Block{
+public class IBlock extends Block{
 
 	/**
 	 * 
@@ -22,30 +22,40 @@ public class SBlock extends Block{
 	private Particle p2;
 	private Particle p3;
 	
-	public SBlock() {
+	public IBlock(){
 		// TODO Auto-generated constructor stub
 		this.particles=new ArrayList<>();
-		this.start=new Particle(Color.GREEN);
+		this.start=new Particle(Color.AQUA);
 		
-		this.p1=new Particle(Color.GREEN);
-		this.p2=new Particle(Color.GREEN);
-		this.p3=new Particle(Color.GREEN);
-		
-		
-		
+		this.p1=new Particle(Color.AQUA);
+		this.p2=new Particle(Color.AQUA);
+		this.p3=new Particle(Color.AQUA);
 		
 		this.p1.setLinksVon(this.p2);
-		this.p1.setUeber(this.start);
 		this.p2.setRechtsVon(this.p1);
-		this.start.setUnter(this.p1);
-		this.start.setRechtsVon(this.p3);
-		this.p3.setLinksVon(this.start);
+		this.p2.setLinksVon(this.start);
+		this.start.setRechtsVon(this.p2);
+		this.start.setLinksVon(this.p3);
+		this.p3.setRechtsVon(this.start);
 		
 		
 		particles.add(start);
 		particles.add(p1);
 		particles.add(p2);
 		particles.add(p3);
+		
+		getBlockMatrix().add(new int[][]{
+            {0, 0, 0, 0},
+            {1, 1, 1, 1},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0}
+    });
+    getBlockMatrix().add(new int[][]{
+            {0, 1, 0, 0},
+            {0, 1, 0, 0},
+            {0, 1, 0, 0},
+            {0, 1, 0, 0}
+    });
 	}
 
 	public ArrayList<Particle> getParticles() {

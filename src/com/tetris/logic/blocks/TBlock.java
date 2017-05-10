@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.tetris.game;
+package com.tetris.logic.blocks;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
  * @author florianhofer
  *
  */
-public class TBlock {
+public class TBlock extends Block{
 
 	/**
 	 * 
@@ -43,6 +43,33 @@ public class TBlock {
 		particles.add(p1);
 		particles.add(p2);
 		particles.add(p3);
+		
+		
+		getBlockMatrix().add(new int[][]{
+            {0, 0, 0, 0},
+            {6, 6, 6, 0},
+            {0, 6, 0, 0},
+            {0, 0, 0, 0}
+    });
+		getBlockMatrix().add(new int[][]{
+            {0, 6, 0, 0},
+            {0, 6, 6, 0},
+            {0, 6, 0, 0},
+            {0, 0, 0, 0}
+    });
+		getBlockMatrix().add(new int[][]{
+            {0, 6, 0, 0},
+            {6, 6, 6, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0}
+    });
+		getBlockMatrix().add(new int[][]{
+            {0, 6, 0, 0},
+            {6, 6, 0, 0},
+            {0, 6, 0, 0},
+            {0, 0, 0, 0}
+    });
+		
 	}
 
 	public ArrayList<Particle> getParticles() {

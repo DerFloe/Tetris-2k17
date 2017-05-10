@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.tetris.game;
+package com.tetris.logic.blocks;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
  * @author florianhofer
  *
  */
-public class IBlock extends Block{
+public class JBlock extends Block{
 
 	/**
 	 * 
@@ -22,17 +22,20 @@ public class IBlock extends Block{
 	private Particle p2;
 	private Particle p3;
 	
-	public IBlock() {
+	public JBlock() {
 		// TODO Auto-generated constructor stub
 		this.particles=new ArrayList<>();
-		this.start=new Particle(Color.AQUA);
+		this.start=new Particle(Color.BLUE);
 		
-		this.p1=new Particle(Color.AQUA);
-		this.p2=new Particle(Color.AQUA);
-		this.p3=new Particle(Color.AQUA);
+		this.p1=new Particle(Color.BLUE);
+		this.p2=new Particle(Color.BLUE);
+		this.p3=new Particle(Color.BLUE);
 		
-		this.p1.setLinksVon(this.p2);
-		this.p2.setRechtsVon(this.p1);
+		
+		
+		
+		this.p1.setUeber(this.p2);
+		this.p2.setUnter(this.p1);
 		this.p2.setLinksVon(this.start);
 		this.start.setRechtsVon(this.p2);
 		this.start.setLinksVon(this.p3);
@@ -43,6 +46,32 @@ public class IBlock extends Block{
 		particles.add(p1);
 		particles.add(p2);
 		particles.add(p3);
+		
+		getBlockMatrix().add(new int[][]{
+            {0, 0, 0, 0},
+            {2, 2, 2, 0},
+            {0, 0, 2, 0},
+            {0, 0, 0, 0}
+    });
+		getBlockMatrix().add(new int[][]{
+            {0, 0, 0, 0},
+            {0, 2, 2, 0},
+            {0, 2, 0, 0},
+            {0, 2, 0, 0}
+    });
+		getBlockMatrix().add(new int[][]{
+            {0, 0, 0, 0},
+            {0, 2, 0, 0},
+            {0, 2, 2, 2},
+            {0, 0, 0, 0}
+    });
+		getBlockMatrix().add(new int[][]{
+            {0, 0, 2, 0},
+            {0, 0, 2, 0},
+            {0, 2, 2, 0},
+            {0, 0, 0, 0}
+    });
+		
 	}
 
 	public ArrayList<Particle> getParticles() {
