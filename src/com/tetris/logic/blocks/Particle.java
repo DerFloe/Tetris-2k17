@@ -21,10 +21,7 @@ public class Particle {
 	private int num;
 	protected Rectangle r;
 	private Color color;
-	private Particle rechtsVon;
-	private Particle linksVon;
-	private Particle unter;
-	private Particle ueber;
+
 	public Particle() {
 		// TODO Auto-generated constructor stub
 		this(Color.WHITE);
@@ -59,37 +56,9 @@ public class Particle {
 		this.color = color;
 	}
 
-	public Particle getRechtsVon() {
-		return rechtsVon;
-	}
 
-	public void setRechtsVon(Particle rechtsVon) {
-		this.rechtsVon = rechtsVon;
-	}
 
-	public Particle getLinksVon() {
-		return linksVon;
-	}
 
-	public void setLinksVon(Particle linksVon) {
-		this.linksVon = linksVon;
-	}
-
-	public Particle getUnter() {
-		return unter;
-	}
-
-	public void setUnter(Particle unter) {
-		this.unter = unter;
-	}
-
-	public Particle getUeber() {
-		return ueber;
-	}
-
-	public void setUeber(Particle ueber) {
-		this.ueber = ueber;
-	}
 
 	public Rectangle getR() {
 		return r;
@@ -98,6 +67,8 @@ public class Particle {
 	public int getNum() {
 		return num;
 	}
+
+	
 	
 
 }

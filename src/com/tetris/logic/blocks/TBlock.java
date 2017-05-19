@@ -16,20 +16,20 @@ public class TBlock extends Block{
 	/**
 	 * 
 	 */
-	private ArrayList<Particle> particles;
-	private Particle start;
-	private Particle p1;
-	private Particle p2;
-	private Particle p3;
+	private ArrayList<ParticleWithPosition> particles;
+	private ParticleWithPosition start;
+	private ParticleWithPosition p1;
+	private ParticleWithPosition p2;
+	private ParticleWithPosition p3;
 	
 	public TBlock() {
 		// TODO Auto-generated constructor stub
 		this.particles=new ArrayList<>();
-		this.start=new Particle(Color.AQUA);
+		this.start=new ParticleWithPosition(Color.AQUA);
 		
-		this.p1=new Particle(Color.AQUA);
-		this.p2=new Particle(Color.AQUA);
-		this.p3=new Particle(Color.AQUA);
+		this.p1=new ParticleWithPosition(Color.AQUA);
+		this.p2=new ParticleWithPosition(Color.AQUA);
+		this.p3=new ParticleWithPosition(Color.AQUA);
 		
 		this.p1.setUeber(this.start);
 		this.p2.setLinksVon(this.start);
@@ -72,43 +72,43 @@ public class TBlock extends Block{
 		
 	}
 
-	public ArrayList<Particle> getParticles() {
+	public ArrayList<ParticleWithPosition> getParticles() {
 		return particles;
 	}
 
-	public void setParticles(ArrayList<Particle> particles) {
+	public void setParticles(ArrayList<ParticleWithPosition> particles) {
 		this.particles = particles;
 	}
 
-	public Particle getStart() {
+	public ParticleWithPosition getStart() {
 		return start;
 	}
 
-	public void setStart(Particle start) {
+	public void setStart(ParticleWithPosition start) {
 		this.start = start;
 	}
 
-	public Particle getP1() {
+	public ParticleWithPosition getP1() {
 		return p1;
 	}
 
-	public void setP1(Particle p1) {
+	public void setP1(ParticleWithPosition p1) {
 		this.p1 = p1;
 	}
 
-	public Particle getP2() {
+	public ParticleWithPosition getP2() {
 		return p2;
 	}
 
-	public void setP2(Particle p2) {
+	public void setP2(ParticleWithPosition p2) {
 		this.p2 = p2;
 	}
 
-	public Particle getP3() {
+	public ParticleWithPosition getP3() {
 		return p3;
 	}
 
-	public void setP3(Particle p3) {
+	public void setP3(ParticleWithPosition p3) {
 		this.p3 = p3;
 	}
 		

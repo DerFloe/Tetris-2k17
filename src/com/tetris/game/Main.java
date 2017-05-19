@@ -3,6 +3,7 @@ package com.tetris.game;
 import com.tetris.logic.blocks.FallingParticle;
 import com.tetris.logic.blocks.Particle;
 import com.tetris.logic.blocks.ParticleWithPosition;
+import com.tetris.logic.blocks.ZBlock;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -26,7 +27,7 @@ public class Main extends Application {
 	private CommandsXGamefield m;
 	private Stage primaryStage;
 	
-	private FallingParticle current;
+	private ZBlock current;
 	
 	public Main(int xAxe, int yAxe) {
 		super();
@@ -69,11 +70,11 @@ public class Main extends Application {
 			
 			scene.setOnKeyPressed(k -> {
 				if(k.getCode() == KeyCode.LEFT) {
-					current.moveLeft();
+					current.getStart().moveLeft();
 					System.out.println("LEFT");
 				}
 				if(k.getCode()== KeyCode.RIGHT){
-					current.moveRight();
+					current.getStart().moveRight();
 					System.out.println(("RIGHT"));
 				}
 			});
@@ -95,7 +96,8 @@ public class Main extends Application {
 				}
 			}.start();
 			
-			current = summonBlock(3, Color.RED, gameField);
+			current = new ZBlock(3,20); // summonBlock(3, Color.RED, gameField);
+			root.getChildren().addAll(current.getRectangles());
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

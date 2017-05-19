@@ -13,10 +13,13 @@ public class FallingParticle extends ParticleWithPosition {
 	}
 
 	public void update() {
-		if(y >= 0f) {
+		if(y > 0f) {
 		y-= 0.05f;
-		updateRectangle();
+		
+		}else{
+			y=0;
 		}
+		updateRectangle();
 	}
 	
 	

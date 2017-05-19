@@ -4,8 +4,12 @@
 package com.tetris.logic.blocks;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+import javafx.scene.Node;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 /**
  * @author florianhofer
@@ -17,29 +21,26 @@ public class ZBlock extends Block{
 	 * 
 	 */
 	private ArrayList<Particle> particles;
-	private Particle start;
-	private Particle p1;
-	private Particle p2;
-	private Particle p3;
+	private FallingParticle start;
+	private ParticleWithPosition p1;
+	private ParticleWithPosition p2;
+	private ParticleWithPosition p3;
 	
-	public ZBlock() {
+	public ZBlock(int x, int y) {
 		// TODO Auto-generated constructor stub
 		this.particles=new ArrayList<>();
-		this.start=new Particle(Color.RED);
+		this.start=new FallingParticle(Color.RED, x, y);
 		
-		this.p1=new Particle(Color.RED);
-		this.p2=new Particle(Color.RED);
-		this.p3=new Particle(Color.RED);
+		this.p1=new ParticleWithPosition(Color.RED, 0, 0);
+		this.p2=new ParticleWithPosition(Color.RED, 0, 0);
+		this.p3=new ParticleWithPosition(Color.RED, 0, 0);
+		update();
 		
 		
 		
-		
-		this.p1.setLinksVon(this.p2);
-		this.p2.setRechtsVon(this.p1);
-		this.p2.setUeber(this.start);
-		this.start.setUnter(this.p2);
-		this.start.setLinksVon(this.p3);
-		this.p3.setRechtsVon(this.start);
+		this.p1.setLinksVon(this.start);
+		this.p2.setUnter(this.start);
+		this.p3.setRechtsVon(this.p2);
 		
 		
 		particles.add(start);
@@ -64,41 +65,28 @@ public class ZBlock extends Block{
 	public ArrayList<Particle> getParticles() {
 		return particles;
 	}
+	
+	public void update() {
+		start.update();
+		p1.update();
+		p2.update();
+		p3.update();
+		
+	}
 
 	public void setParticles(ArrayList<Particle> particles) {
 		this.particles = particles;
 	}
 
-	public Particle getStart() {
+	public FallingParticle getStart() {
 		return start;
 	}
 
-	public void setStart(Particle start) {
-		this.start = start;
+	public List<Rectangle> getRectangles() {
+		
+		return Arrays.asList(start.getR(),p1.getR(),p2.getR(),p3.getR());
 	}
 
-	public Particle getP1() {
-		return p1;
-	}
 
-	public void setP1(Particle p1) {
-		this.p1 = p1;
-	}
-
-	public Particle getP2() {
-		return p2;
-	}
-
-	public void setP2(Particle p2) {
-		this.p2 = p2;
-	}
-
-	public Particle getP3() {
-		return p3;
-	}
-
-	public void setP3(Particle p3) {
-		this.p3 = p3;
-	}
 		
 }

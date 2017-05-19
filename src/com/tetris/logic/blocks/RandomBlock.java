@@ -26,7 +26,7 @@ public class RandomBlock {
         liste.add(new OBlock());
         liste.add(new SBlock());
         liste.add(new TBlock());
-        liste.add(new ZBlock());
+     //   liste.add(new ZBlock());
 	}
 	
 	public Block getRandomBlock(){
