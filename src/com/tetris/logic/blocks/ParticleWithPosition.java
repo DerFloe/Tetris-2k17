@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 public class ParticleWithPosition extends Particle {
 
 	protected int x;
-	protected int y;
+	protected float y;
 	
 	public ParticleWithPosition(int x, int y) {
 		this(Color.TRANSPARENT, x, y);
@@ -21,7 +21,7 @@ public class ParticleWithPosition extends Particle {
 	}
 
 	public void updateRectangle() {
-		r.setX(x);
-		r.setY(y);
+		r.setX(x * 20.);
+		r.setY(y * 20.);
 	}
 }

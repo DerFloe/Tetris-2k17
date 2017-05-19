@@ -95,7 +95,7 @@ public class Main extends Application {
 				}
 			}.start();
 			
-			current = summonBlock(3, 0, Color.RED, gameField);
+			current = summonBlock(3, Color.RED, gameField);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -108,13 +108,13 @@ public class Main extends Application {
 		}
 	}
 	
-	public FallingParticle summonBlock(int x,int y, Color c, Pane root){
+	public FallingParticle summonBlock(int x, Color c, Pane root){
 		
-		FallingParticle r=new FallingParticle(c, 20*x,20*y);
+		FallingParticle r=new FallingParticle(c, x, 20);
 		root.getChildren().add(r.getR());
 		
 //		this.fields[x][y].setR(new Rectangle(20*x,20*y,20,20));
-		System.out.println("Block added at: ["+x+"/"+y+"]");
+		System.out.println("Block added at: ["+x+"/20]");
 	
 		return r;
 	}
