@@ -4,8 +4,8 @@ import javafx.scene.paint.Color;
 
 public class ParticleWithPosition extends Particle {
 
-	private int x;
-	private int y;
+	protected int x;
+	protected int y;
 	
 	public ParticleWithPosition(int x, int y) {
 		this(Color.TRANSPARENT, x, y);

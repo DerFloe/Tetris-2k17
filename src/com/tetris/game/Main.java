@@ -1,7 +1,10 @@
 package com.tetris.game;
 	
+import com.tetris.logic.blocks.FallingParticle;
 import com.tetris.logic.blocks.Particle;
+import com.tetris.logic.blocks.ParticleWithPosition;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -15,11 +18,12 @@ public class Main extends Application {
 	public Particle[][] fields;
 	private int xAxe;
 	private int yAxe;
-	private BorderPane root;
+	private Pane gameField;
 	private Scene scene;
 	private CommandsXGamefield m;
 	private Stage primaryStage;
 	
+	private FallingParticle current;
 	
 	public Main(int xAxe, int yAxe) {
 		super();
@@ -27,7 +31,6 @@ public class Main extends Application {
 		this.xAxe = xAxe;
 		this.yAxe = yAxe;
 		this.fields = new Particle[yAxe][xAxe];
-		this.root = new BorderPane();
 		this.primaryStage=new Stage();
 		
 	}
@@ -41,10 +44,12 @@ public class Main extends Application {
 		try {
 			
 			this.primaryStage=primaryStage;
+			BorderPane root = new BorderPane();
+			
 			this.scene = new Scene(root,400,400);
 			
 			this.m=new CommandsXGamefield(10,20);
-			Pane gameField = m.generateGamefield();
+			gameField = m.generateGamefield();
 			root.setCenter(gameField);
 			
 			//FOR CSS
@@ -58,21 +63,45 @@ public class Main extends Application {
 //			m.refresh(this.primaryStage);
 			
 			
+			// fixe rate um logik zu simulieren: 30/secs
+			
+			long nanosInterval = 1000000000l / 30l;
+			
+			
+			new AnimationTimer() {
+				private long nextUpdate = System.nanoTime();
+				
+				@Override
+				public void handle(long now) {
+					if(now >= nextUpdate) {
+						update();
+						nextUpdate += nanosInterval;
+					}
+				}
+			}.start();
+			
+			current = summonBlock(3, 0, Color.RED, gameField);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
+	// das wird 30x in der ausgefuehrt
+	public void update() {
+		if(current != null)  {
+			current.update();
+		}
+	}
 	
-	
-	
-	public void summonBlock(int x,int y, Color c, Pane root){
+	public FallingParticle summonBlock(int x,int y, Color c, Pane root){
 		
-		Rectangle r=new Rectangle(20*x,20*y,20,20);
+		FallingParticle r=new FallingParticle(c, 20*x,20*y);
+		root.getChildren().add(r.getR());
 		
 //		this.fields[x][y].setR(new Rectangle(20*x,20*y,20,20));
 		System.out.println("Block added at: ["+x+"/"+y+"]");
-		
+	
+		return r;
 	}
 	
 	public void fallBlock(int x,int y, Pane root) throws InterruptedException{
@@ -116,7 +145,7 @@ public class Main extends Application {
 //	    		field[gapx][gapy]=p;
 	    		
 	    		
-	    		this.root.getChildren().add(this.fields[i][o].getR());
+	    		this.gameField.getChildren().add(this.fields[i][o].getR());
 	    	
 	    		
 	    		gapx+=20;
@@ -133,7 +162,7 @@ public class Main extends Application {
 	public void refresh(Stage istage){
 		
 		System.out.println("Tetris: Refresh command executed");
-		this.scene = new Scene(root,400,400);
+		this.scene = new Scene(gameField,400,400);
 		istage.setScene(scene);
 		
 		int gapy=0;
@@ -155,7 +184,7 @@ public class Main extends Application {
 //	    		int indexNr=i+o;
 	    		
 	    		
-	    		this.root.getChildren().add(this.fields[i][o].getR());
+	    		this.gameField.getChildren().add(this.fields[i][o].getR());
 	    	
 	    		
 	    		gapx+=20;
