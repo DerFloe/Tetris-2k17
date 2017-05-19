@@ -128,6 +128,8 @@ public class Main extends Application {
 					// TODO Auto-generated method stub
 					
 					System.out.println("Thank you for playing Tetris 2k17");
+					System.out.println("For updates visit:");
+					System.out.println("https://github.com/derfloe/Tetris-2k17/");
 					Stage stage = (Stage) btnEnd.getScene().getWindow();
 					
 				    stage.close();

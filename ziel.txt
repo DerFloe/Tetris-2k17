@@ -1,3 +1,7 @@
 Menü mit den Buttons (Start, Menü, beenden)
 Beenden beendet das Spiel
 Start & Menü kommt man in ein neues Fenster
+
+
+Settings, mit music theme auswahl
+classic, remix etc.

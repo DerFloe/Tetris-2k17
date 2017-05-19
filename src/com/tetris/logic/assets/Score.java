@@ -26,4 +26,10 @@ public class Score {
 		score=0;
 	}
 
+	public Integer getScore() {
+		return score;
+	}
+	
+	
+
 }

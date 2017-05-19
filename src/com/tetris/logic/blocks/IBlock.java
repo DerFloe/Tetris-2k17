@@ -49,13 +49,13 @@ public class IBlock extends Block{
             {1, 1, 1, 1},
             {0, 0, 0, 0},
             {0, 0, 0, 0}
-    });
-    getBlockMatrix().add(new int[][]{
+		});
+		getBlockMatrix().add(new int[][]{
             {0, 1, 0, 0},
             {0, 1, 0, 0},
             {0, 1, 0, 0},
             {0, 1, 0, 0}
-    });
+		});
 	}
 
 	public ArrayList<Particle> getParticles() {
