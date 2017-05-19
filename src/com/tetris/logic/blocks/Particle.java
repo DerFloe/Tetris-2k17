@@ -19,7 +19,7 @@ public class Particle {
 
 	    // Instanzvariable
 	private int num;
-	private Rectangle r;
+	protected Rectangle r;
 	private Color color;
 	private Particle rechtsVon;
 	private Particle linksVon;
@@ -37,6 +37,10 @@ public class Particle {
 		this.color = color;
 		counter++;
         num = counter;
+        
+        r= new Rectangle(0,0,20,20);
+        r.setStroke(Color.GRAY);
+        r.setFill(color);
 	}
 
 	/**
@@ -89,10 +93,6 @@ public class Particle {
 
 	public Rectangle getR() {
 		return r;
-	}
-
-	public void setR(Rectangle r) {
-		this.r = r;
 	}
 
 	public int getNum() {

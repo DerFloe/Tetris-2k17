@@ -69,8 +69,6 @@ public class Main extends Application {
 	public void summonBlock(int x,int y, Color c, Pane root){
 		
 		Rectangle r=new Rectangle(20*x,20*y,20,20);
-		r.setFill(c);
-		this.fields[y][x].setR(r);
 		
 //		this.fields[x][y].setR(new Rectangle(20*x,20*y,20,20));
 		System.out.println("Block added at: ["+x+"/"+y+"]");
@@ -115,10 +113,6 @@ public class Main extends Application {
 	    		
 	    		
 	    		this.fields[i][o]=new Particle(Color.WHITE);
-	    		this.fields[i][o].setR(new Rectangle(gapx,gapy,20,20));
-	    		this.fields[i][o].getR().setStroke(Color.GRAY);
-	    		
-	    		this.fields[i][o].getR().setFill(Color.BLUE);
 //	    		field[gapx][gapy]=p;
 	    		
 	    		

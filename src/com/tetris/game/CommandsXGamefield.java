@@ -4,6 +4,7 @@
 package com.tetris.game;
 
 import com.tetris.logic.blocks.Particle;
+import com.tetris.logic.blocks.ParticleWithPosition;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -23,7 +24,7 @@ public class CommandsXGamefield {
 	 * 
 	 */
 	
-	public Particle[][] fields;
+	public ParticleWithPosition[][] fields;
 	private int xAxe;
 	private int yAxe;
 	
@@ -32,7 +33,7 @@ public class CommandsXGamefield {
 		
 		this.xAxe = xAxe;
 		this.yAxe = yAxe;
-		this.fields = new Particle[yAxe][xAxe];
+		this.fields = new ParticleWithPosition[yAxe][xAxe];
 	}
 	
 	public CommandsXGamefield(){
@@ -55,12 +56,10 @@ public class CommandsXGamefield {
 		    	for(int o=0;o<=xAxe-1;o++){
 		    		
 		    		
-		    		m.fields[i][o]=new Particle(Color.WHITE);
-		    		m.fields[i][o].setR(new Rectangle(gapx,gapy,20,20));
-		    		m.fields[i][o].getR().setStroke(Color.GRAY);
+		    		m.fields[i][o]=new ParticleWithPosition(Color.WHITE, gapx, gapy);
 		    		
-		    		m.fields[i][o].getR().setFill(m.fields[i][o].getColor());
-		    	
+		    		
+		    		
 //		    		field[gapx][gapy]=p;
 		    		int indexNr=i+o;
 //		    		System.out.println("Gamefield particle: ["+i+"/"+o+"] summoned index: "+m.fields[i][o].getNum());
