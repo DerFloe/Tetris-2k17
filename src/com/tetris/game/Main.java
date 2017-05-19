@@ -6,8 +6,11 @@ import com.tetris.logic.blocks.ParticleWithPosition;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -62,6 +65,18 @@ public class Main extends Application {
 			this.primaryStage.show();
 //			m.refresh(this.primaryStage);
 			
+			
+			
+			scene.setOnKeyPressed(k -> {
+				if(k.getCode() == KeyCode.LEFT) {
+					current.moveLeft();
+					System.out.println("LEFT");
+				}
+				if(k.getCode()== KeyCode.RIGHT){
+					current.moveRight();
+					System.out.println(("RIGHT"));
+				}
+			});
 			
 			// fixe rate um logik zu simulieren: 30/secs
 			

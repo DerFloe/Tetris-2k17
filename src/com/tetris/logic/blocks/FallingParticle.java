@@ -13,7 +13,26 @@ public class FallingParticle extends ParticleWithPosition {
 	}
 
 	public void update() {
+		if(y!=380){
 		y++;
 		updateRectangle();
+		}
 	}
+	
+	
+	
+	public void moveLeft(){
+		if(x>=40){
+			x-=20;
+		}
+		
+	}
+	
+	public void moveRight(){
+		if(x<=180){
+		x+=20;
+		}
+	}
+	
+
 }
