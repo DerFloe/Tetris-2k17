@@ -177,6 +177,7 @@ public class GameStarter extends Application {
 	
 	// das wird 30x in der ausgefuehrt
 	public void update() {
+		try{
 		if(current != null)  {
 			
 			// summonBlock(3, Color.RED, gameField);
@@ -251,6 +252,10 @@ public class GameStarter extends Application {
 				drawBlock();
 				System.out.println("ZBLOCK Reached Ground");
 			}
+		}
+		}
+		catch(Exception e){
+			System.err.println("FEHLER");
 		}
 	}
 	
