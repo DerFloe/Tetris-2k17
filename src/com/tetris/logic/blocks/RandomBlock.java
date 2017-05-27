@@ -20,7 +20,7 @@ public class RandomBlock {
 	public RandomBlock() {
 		// TODO Auto-generated constructor stub
 		liste = new ArrayList<>();
-        liste.add(new IBlock());
+        liste.add(new IBlock(3,4));
         liste.add(new JBlock());
         liste.add(new LBlock());
         liste.add(new OBlock());

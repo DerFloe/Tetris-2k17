@@ -23,6 +23,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import com.tetris.game.*;
 
 public class Main extends Application {
 	
@@ -91,6 +92,16 @@ public class Main extends Application {
 			root.getChildren().add(btnSettings);
 			root.getChildren().add(btnEnd);
 			root.getChildren().add(infob);
+			btnStart.setOnAction(new EventHandler<ActionEvent>(){
+
+				@Override
+				public void handle(ActionEvent event) {
+					// TODO Auto-generated method stub
+					GameStarter g=new GameStarter();
+					g.start(new Stage());
+				}
+				
+			});
 //			btnStart.setOnAction(new EventHandler<ActionEvent>() {
 				 
 //	            @Override

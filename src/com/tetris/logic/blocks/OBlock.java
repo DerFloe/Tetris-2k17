@@ -4,8 +4,11 @@
 package com.tetris.logic.blocks;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 /**
  * @author florianhofer
@@ -17,32 +20,29 @@ public class OBlock extends Block{
 	 * 
 	 */
 	private ArrayList<ParticleWithPosition> particles;
-	private ParticleWithPosition start;
+	private FallingParticle start;
 	private ParticleWithPosition p1;
 	private ParticleWithPosition p2;
 	private ParticleWithPosition p3;
 	
-	public OBlock() {
+	public OBlock(int x, int y) {
 		// TODO Auto-generated constructor stub
 		this.particles=new ArrayList<>();
-		this.start=new ParticleWithPosition(Color.YELLOW);
+		this.start=new FallingParticle(Color.YELLOW, x, y);
 		
-		this.p1=new ParticleWithPosition(Color.YELLOW);
-		this.p2=new ParticleWithPosition(Color.YELLOW);
-		this.p3=new ParticleWithPosition(Color.YELLOW);
-		
-		
+		this.p1=new ParticleWithPosition(Color.YELLOW,0,0);
+		this.p2=new ParticleWithPosition(Color.YELLOW,0,0);
+		this.p3=new ParticleWithPosition(Color.YELLOW,0,0);
 		
 		
+		
+		
+		this.p2.setUeber(this.start);
+		this.p3.setLinksVon(this.start);
 		this.p1.setLinksVon(this.p2);
 		this.p1.setUeber(this.p3);
-		this.p2.setRechtsVon(this.p1);
-		this.p2.setUeber(this.start);
-		this.start.setUnter(this.p2);
-		this.start.setRechtsVon(this.p3);
-		this.p3.setUnter(this.p1);
-		this.p3.setLinksVon(this.start);
 		
+
 		
 		particles.add(start);
 		particles.add(p1);
@@ -67,11 +67,9 @@ public class OBlock extends Block{
 		this.particles = particles;
 	}
 
-	public ParticleWithPosition getStart() {
-		return start;
-	}
+	
 
-	public void setStart(ParticleWithPosition start) {
+	public void setStart(FallingParticle start) {
 		this.start = start;
 	}
 
@@ -99,4 +97,20 @@ public class OBlock extends Block{
 		this.p3 = p3;
 	}
 		
+	public void update() {
+		start.update();
+		p1.update();
+		p2.update();
+		p3.update();
+		
+	}
+	
+	public FallingParticle getStart() {
+		return start;
+	}
+
+	public List<Rectangle> getRectangles() {
+		
+		return Arrays.asList(start.getR(),p1.getR(),p2.getR(),p3.getR());
+	}
 }

@@ -22,17 +22,23 @@ public class FallingParticle extends ParticleWithPosition {
 		updateRectangle();
 	}
 	
+	public boolean groundReached(){
+		if(y<=0f){
+			return true;
+		}
+		return false;
+	}
 	
 	
 	public void moveLeft(){
-		if(x>0){
+		if(x>0&&y > 0f){
 			x--;
 		}
 		
 	}
 	
 	public void moveRight(){
-		if(x<9){
+		if(x<9&&y > 0f){
 		x++;
 		}
 	}

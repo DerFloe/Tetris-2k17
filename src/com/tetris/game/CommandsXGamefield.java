@@ -44,7 +44,7 @@ public class CommandsXGamefield {
 	
 	
 	public Pane generateGamefield(){
-			Main m=new Main(10,20);
+			GameStarter m=new GameStarter(10,20);
 			
 			Pane pane = new Pane();
 			

@@ -4,8 +4,11 @@
 package com.tetris.logic.blocks;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 /**
  * @author florianhofer
@@ -17,29 +20,29 @@ public class JBlock extends Block{
 	 * 
 	 */
 	private ArrayList<ParticleWithPosition> particles;
-	private ParticleWithPosition start;
+	private FallingParticle start;
 	private ParticleWithPosition p1;
 	private ParticleWithPosition p2;
 	private ParticleWithPosition p3;
 	
-	public JBlock() {
+	public JBlock(int x, int y) {
 		// TODO Auto-generated constructor stub
 		this.particles=new ArrayList<>();
-		this.start=new ParticleWithPosition(Color.BLUE);
+		this.start=new FallingParticle(Color.BLUE, x , y);
 		
-		this.p1=new ParticleWithPosition(Color.BLUE);
-		this.p2=new ParticleWithPosition(Color.BLUE);
-		this.p3=new ParticleWithPosition(Color.BLUE);
-		
-		
+		this.p1=new ParticleWithPosition(Color.BLUE,0,0);
+		this.p2=new ParticleWithPosition(Color.BLUE,0,0);
+		this.p3=new ParticleWithPosition(Color.BLUE,0,0);
 		
 		
-		this.p1.setUeber(this.p2);
-		this.p2.setUnter(this.p1);
+		
+		
+		
+		
 		this.p2.setLinksVon(this.start);
-		this.start.setRechtsVon(this.p2);
-		this.start.setLinksVon(this.p3);
 		this.p3.setRechtsVon(this.start);
+		this.p1.setUeber(this.p2);
+		
 		
 		
 		particles.add(start);
@@ -82,11 +85,11 @@ public class JBlock extends Block{
 		this.particles = particles;
 	}
 
-	public ParticleWithPosition getStart() {
+	public FallingParticle getStart() {
 		return start;
 	}
 
-	public void setStart(ParticleWithPosition start) {
+	public void setStart(FallingParticle start) {
 		this.start = start;
 	}
 
@@ -114,4 +117,15 @@ public class JBlock extends Block{
 		this.p3 = p3;
 	}
 		
+	public void update() {
+		start.update();
+		p1.update();
+		p2.update();
+		p3.update();
+		
+	}
+public List<Rectangle> getRectangles() {
+		
+		return Arrays.asList(start.getR(),p1.getR(),p2.getR(),p3.getR());
+	}
 }
