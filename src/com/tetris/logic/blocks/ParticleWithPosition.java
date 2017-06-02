@@ -136,7 +136,7 @@ public class ParticleWithPosition extends Particle {
 		int ceil=(int)Math.ceil(y);
 		int floor=(int)Math.floor(y);
 		for(ParticleWithPosition exp : existierendenPartikel){
-			if(exp.getX()==getX()&&exp.getY()==ceil||exp.getY()==floor){
+			if(y<=0||exp.getX()==getX()&&exp.getY()==ceil||exp.getY()==floor){
 				return true;
 			}
 		}

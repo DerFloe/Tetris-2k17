@@ -30,7 +30,7 @@ public class Main extends Application {
     public static final int TILE_SIZE = 40;
     public static final int GRID_WIDTH = 15;
     public static final int GRID_HEIGHT = 20;
-    
+   
     private double time;
     
     

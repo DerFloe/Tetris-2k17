@@ -80,10 +80,10 @@ public class GameStarter extends Application {
 			
 			this.scene = new Scene(root,200,410);
 			
-			this.m=new CommandsXGamefield(10,20);
+			this.m=new CommandsXGamefield(12,21);
 			gameField = m.generateGamefield();
 			root.setCenter(gameField);
-			
+			generateBorder();
 			//FOR CSS
 			root.setId("pane");
 			this.scene.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
@@ -191,41 +191,43 @@ public class GameStarter extends Application {
 			}
 		}
 		if(current instanceof IBlock){
-			if(((IBlock)current).getStart().groundReached()){
+			if(((IBlock)current).getStart().groundReached(existierendenPartikel)||((IBlock)current).getStart().istKollidiert(existierendenPartikel)){
+				root.getChildren().removeAll(current.getRectangles());
+				currentToBg(current);
 				current=randomBlock();
 				drawBlock();
 				System.out.println("IBLOCK Reached Ground");
 			}
 		}
 		if(current instanceof JBlock){
-			if(((JBlock)current).getStart().groundReached()){
+			if(((JBlock)current).getStart().groundReached(existierendenPartikel)){
 				current=randomBlock();
 				drawBlock();
 				System.out.println("JBLOCK Reached Ground");
 			}
 		}
 		if(current instanceof LBlock){
-			if(((LBlock)current).getStart().groundReached()){
+			if(((LBlock)current).getStart().groundReached(existierendenPartikel)){
 				current=randomBlock();
 				drawBlock();
 				System.out.println("LBLOCK Reached Ground");
 			}
 		}
 		if(current instanceof OBlock){
-			if(((OBlock)current).getStart().groundReached()){
+			if(((OBlock)current).getStart().groundReached(existierendenPartikel)){
 				current=randomBlock();
 				drawBlock();
 				System.out.println("OBLOCK Reached Ground");
 			}
 		}
 		if(current instanceof SBlock){
-			if(((SBlock)current).getStart().groundReached()){
+			if(((SBlock)current).getStart().groundReached(existierendenPartikel)){
 				current=randomBlock();
 				System.out.println("SBLOCK Reached Ground");
 			}
 		}
 		if(current instanceof TBlock){
-			if(((TBlock)current).getStart().groundReached()){
+			if(((TBlock)current).getStart().groundReached(existierendenPartikel)){
 				current=randomBlock();
 				drawBlock();
 				System.out.println("TBLOCK Reached Ground");
@@ -233,7 +235,7 @@ public class GameStarter extends Application {
 		}
 		
 		if(current instanceof ZBlock){
-			if(((ZBlock)current).getStart().groundReached()){
+			if(((ZBlock)current).getStart().groundReached(existierendenPartikel)){
 				current=randomBlock();
 				drawBlock();
 				System.out.println("ZBLOCK Reached Ground");
@@ -449,5 +451,21 @@ public class GameStarter extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+	}
+	
+	
+	public void generateBorder(){
+		for(int i=1;i<=21;i++){
+			
+		}
+	}
+	
+	//setzt die partikel von uebergebenm parameter auf eine arraylist und gibt sie wieder in die scene
+	public void currentToBg(Block b){
+		for(Rectangle r: b.getRectangles()){
+			root.getChildren().add(r);
+			existierendenPartikel.add(b.getStart());
+			
+		}
 	}
 }

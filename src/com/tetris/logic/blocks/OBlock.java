@@ -20,10 +20,7 @@ public class OBlock extends Block{
 	 * 
 	 */
 	
-	private FallingParticle start;
-	private ParticleWithPosition p1;
-	private ParticleWithPosition p2;
-	private ParticleWithPosition p3;
+
 	
 	public OBlock(int x, int y, List<ParticleWithPosition> existierendenPartikel) {
 		super(existierendenPartikel);

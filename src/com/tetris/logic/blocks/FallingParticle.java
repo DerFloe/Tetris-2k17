@@ -1,5 +1,7 @@
 package com.tetris.logic.blocks;
 
+import java.util.List;
+
 import javafx.scene.paint.Color;
 
 public class FallingParticle extends ParticleWithPosition {
@@ -17,8 +19,8 @@ public class FallingParticle extends ParticleWithPosition {
 		
 		bottom=0;
 	}
-	public void update() {
-	if(y > 0) {
+	public void update(List<ParticleWithPosition> existierendenPartikel) {
+	if(groundReached(existierendenPartikel)==false) {
 	y-= 0.05f;
 	}else{
 		y=0;
@@ -26,8 +28,8 @@ public class FallingParticle extends ParticleWithPosition {
 	updateRectangle();
 }
 	
-	public boolean groundReached(){
-	if(y<=0){
+	public boolean groundReached(List<ParticleWithPosition> existierendenPartikel){
+	if(y<=0||this.istKollidiert(existierendenPartikel)==true){
 		return true;
 	}
 	return false;

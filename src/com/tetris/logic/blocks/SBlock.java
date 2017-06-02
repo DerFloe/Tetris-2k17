@@ -20,10 +20,7 @@ public class SBlock extends Block{
 	 * 
 	 */
 	
-	private FallingParticle start;
-	private ParticleWithPosition p1;
-	private ParticleWithPosition p2;
-	private ParticleWithPosition p3;
+
 	
 	public SBlock(int x, int y, List<ParticleWithPosition> existierendenPartikel) {
 		// TODO Auto-generated constructor stub

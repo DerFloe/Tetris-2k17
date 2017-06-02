@@ -20,11 +20,8 @@ public class ZBlock extends Block{
 	/**
 	 * 
 	 */
-	private ArrayList<Particle> particles;
-	private FallingParticle start;
-	private ParticleWithPosition p1;
-	private ParticleWithPosition p2;
-	private ParticleWithPosition p3;
+
+
 	
 	public ZBlock(int x, int y, List<ParticleWithPosition> existierendenPartikel) {
 		// TODO Auto-generated constructor stub
@@ -63,9 +60,7 @@ public class ZBlock extends Block{
     });
 	}
 
-	public ArrayList<Particle> getParticles() {
-		return particles;
-	}
+	
 	
 	public void updateParticles() {
 		start.update();
@@ -75,9 +70,7 @@ public class ZBlock extends Block{
 		
 	}
 
-	public void setParticles(ArrayList<Particle> particles) {
-		this.particles = particles;
-	}
+	
 
 	public FallingParticle getStart() {
 		return start;

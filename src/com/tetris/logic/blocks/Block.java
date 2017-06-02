@@ -8,6 +8,10 @@ import javafx.scene.shape.Rectangle;
 public abstract class Block {
 	
 	protected ArrayList<ParticleWithPosition> particles;
+	protected FallingParticle start;
+	protected ParticleWithPosition p1;
+	protected ParticleWithPosition p2;
+	protected ParticleWithPosition p3;
 	public static int objects;
 	public int number;
 	 private final List<int[][]> blockMatrix = new ArrayList<>();
@@ -61,7 +65,7 @@ public abstract class Block {
 		
 	}
 	
-	abstract FallingParticle getStart();
+	public abstract FallingParticle getStart();
 	public void update() {
 		if(linksRechtsWunsch == 1) {
 			getStart().moveRight();
@@ -84,5 +88,27 @@ public abstract class Block {
 		return false;
 	}
 	abstract void updateParticles();
+	public ParticleWithPosition getP1() {
+		return p1;
+	}
+	public void setP1(ParticleWithPosition p1) {
+		this.p1 = p1;
+	}
+	public ParticleWithPosition getP2() {
+		return p2;
+	}
+	public void setP2(ParticleWithPosition p2) {
+		this.p2 = p2;
+	}
+	public ParticleWithPosition getP3() {
+		return p3;
+	}
+	public void setP3(ParticleWithPosition p3) {
+		this.p3 = p3;
+	}
+	public void setStart(FallingParticle start) {
+		this.start = start;
+	}
+	
 
 }

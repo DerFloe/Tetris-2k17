@@ -20,12 +20,7 @@ public class IBlock extends Block{
 	/**
 	 * 
 	 */
-	
-	private FallingParticle start;
-	private ParticleWithPosition p1;
-	private ParticleWithPosition p2;
-	private ParticleWithPosition p3;
-	
+
 	public IBlock(int x, int y, List<ParticleWithPosition> existierendenPartikel){
 		super(existierendenPartikel);
 		// TODO Auto-generated constructor stub

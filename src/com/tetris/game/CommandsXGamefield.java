@@ -37,14 +37,14 @@ public class CommandsXGamefield {
 	}
 	
 	public CommandsXGamefield(){
-		this(10,20);
+		this(12,21);
 	}
 
 
 	
 	
 	public Pane generateGamefield(){
-			GameStarter m=new GameStarter(10,20);
+			GameStarter m=new GameStarter(12,21);
 			
 			Pane pane = new Pane();
 			
