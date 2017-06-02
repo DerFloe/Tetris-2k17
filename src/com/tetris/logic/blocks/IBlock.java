@@ -20,13 +20,14 @@ public class IBlock extends Block{
 	/**
 	 * 
 	 */
-	private ArrayList<ParticleWithPosition> particles;
+	
 	private FallingParticle start;
 	private ParticleWithPosition p1;
 	private ParticleWithPosition p2;
 	private ParticleWithPosition p3;
 	
-	public IBlock(int x, int y){
+	public IBlock(int x, int y, List<ParticleWithPosition> existierendenPartikel){
+		super(existierendenPartikel);
 		// TODO Auto-generated constructor stub
 		this.particles=new ArrayList<>();
 		this.start=new FallingParticle(Color.AQUA, x, y);
@@ -99,18 +100,15 @@ public class IBlock extends Block{
 		this.p3 = p3;
 	}
 		
-	public void update() {
+	public void updateParticles() {
 		start.update();
-		p1.update();
-		p2.update();
 		p3.update();
+		p2.update();
+		p1.update();
 		
 	}
 
-	public List<Rectangle> getRectangles() {
-		
-		return Arrays.asList(start.getR(),p1.getR(),p2.getR(),p3.getR());
-	}
+
 	public FallingParticle getStart() {
 		return start;
 	}

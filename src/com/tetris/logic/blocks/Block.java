@@ -3,15 +3,22 @@ package com.tetris.logic.blocks;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.scene.shape.Rectangle;
+
 public abstract class Block {
 	
+	protected ArrayList<ParticleWithPosition> particles;
 	public static int objects;
 	public int number;
 	 private final List<int[][]> blockMatrix = new ArrayList<>();
-	public Block() {
+	 private List<ParticleWithPosition> existierendenPartikel;
+	 
+	 private int linksRechtsWunsch = 0; // 0 kein Wunsch, -1 heisst links, 1 heisst rechts
+	public Block(List<ParticleWithPosition> existierendenPartikel) {
 		// TODO Auto-generated constructor stub
 		objects++;
 		number = objects;
+		this.existierendenPartikel = existierendenPartikel;
 	}
 	public List<int[][]> getBlockMatrix() {
 		return blockMatrix;
@@ -36,8 +43,46 @@ public abstract class Block {
 			return false;
 		return true;
 	}
+	public void rotateRight() {
+		for (ParticleWithPosition p : particles) {
+			p.rotateRight();
+		}
+	}
 	
+	public List<Rectangle> getRectangles(){
+		List<Rectangle> rectanglesToReturn=new ArrayList<>();
+		for (ParticleWithPosition p : particles) {
+			rectanglesToReturn.add(p.getR());
+		}
+		return rectanglesToReturn;
+	}
+	public void moveRight() {
+		linksRechtsWunsch=1;
+		
+	}
 	
+	abstract FallingParticle getStart();
+	public void update() {
+		if(linksRechtsWunsch == 1) {
+			getStart().moveRight();
+			linksRechtsWunsch = 0;
+
+			// position updaten
+			updateParticles();
+			
+			if(istKollidiert()) {
+				getStart().moveLeft();
+			}
+		}
+		updateParticles();
+	}
 	
+	private boolean istKollidiert() {
+		for(ParticleWithPosition p:particles){
+			return p.istKollidiert(existierendenPartikel);
+		}
+		return false;
+	}
+	abstract void updateParticles();
 
 }

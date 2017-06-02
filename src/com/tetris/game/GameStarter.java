@@ -1,6 +1,7 @@
 package com.tetris.game;
 	
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import com.tetris.logic.blocks.Block;
@@ -39,13 +40,16 @@ public class GameStarter extends Application {
 	private int startX;
 	private int startY;
 	private BorderPane root;
+	private int bottom;
 	
 	private Block current;
 	private ArrayList<Block> blocksRand;
 	
+	private List<ParticleWithPosition> existierendenPartikel = new ArrayList<>();
+	
 	public GameStarter(int xAxe, int yAxe) {
 		super();
-		
+		this.bottom=-1;
 		this.xAxe = xAxe;
 		this.yAxe = yAxe;
 		this.fields = new Particle[yAxe][xAxe];
@@ -53,13 +57,13 @@ public class GameStarter extends Application {
 		blocksRand=new ArrayList<>();
 		this.startX=3;
 		this.startY=20;
-		blocksRand.add(new IBlock(startX,startY));
-		blocksRand.add(new JBlock(startX,startY));
-		blocksRand.add(new LBlock(startX,startY));
-		blocksRand.add(new OBlock(startX,startY));
-		blocksRand.add(new SBlock(startX,startY));
-		blocksRand.add(new TBlock(startX,startY));
-		blocksRand.add(new ZBlock(startX,startY));
+		blocksRand.add(new IBlock(startX,startY,existierendenPartikel));
+		blocksRand.add(new JBlock(startX,startY,existierendenPartikel));
+		blocksRand.add(new LBlock(startX,startY,existierendenPartikel));
+		blocksRand.add(new OBlock(startX,startY,existierendenPartikel));
+		blocksRand.add(new SBlock(startX,startY,existierendenPartikel));
+		blocksRand.add(new TBlock(startX,startY,existierendenPartikel));
+		blocksRand.add(new ZBlock(startX,startY,existierendenPartikel));
 		
 	}
 	
@@ -123,30 +127,12 @@ public class GameStarter extends Application {
 				}
 				if(k.getCode()== KeyCode.RIGHT){
 					
-					if(current instanceof IBlock){
-						((IBlock)current).getStart().moveRight();
-					}
-					if(current instanceof JBlock){
-						((JBlock)current).getStart().moveRight();
-					}
-					if(current instanceof LBlock){
-						((LBlock)current).getStart().moveRight();
-					}
-					if(current instanceof OBlock){
-						((OBlock)current).getStart().moveRight();
-					}
-					if(current instanceof SBlock){
-						((SBlock)current).getStart().moveRight();
-					}
-					if(current instanceof TBlock){
-						((TBlock)current).getStart().moveRight();
-					}
-					
-					if(current instanceof ZBlock){
-						((ZBlock)current).getStart().moveRight();
-					}
+					current.moveRight();
 					
 					System.out.println(("RIGHT"));
+				}
+				if(k.getCode()== KeyCode.UP){
+					current.rotateRight();
 				}
 			});
 			
@@ -255,7 +241,7 @@ public class GameStarter extends Application {
 		}
 		}
 		catch(Exception e){
-			System.err.println("FEHLER");
+			e.printStackTrace();
 		}
 	}
 	
@@ -372,13 +358,55 @@ public class GameStarter extends Application {
 	
 	
 	/**
-	 * pics random block from array
+	 * pics random block from array HINT: HIER MUSS FÜR EINE VARIABLE GRÖ?E DES SPIELFELDES EINE VARIABLE VERWENDET WERDEN
 	 * @return
 	 */
 	public Block randomBlock(){
+		if(bottom<=20){
+		bottom++;
 		Random r=new Random();
 		int index=r.nextInt(6);
+		
+		if(blocksRand.get(index) instanceof IBlock){
+			 IBlock b = new IBlock(startX,startY, existierendenPartikel);
+			 b.getStart().setBottom(bottom);
+			 return b;
+		}
+		if(blocksRand.get(index) instanceof JBlock){
+			JBlock b = new JBlock(startX,startY, existierendenPartikel);
+			 b.getStart().setBottom(bottom);
+			 return b;
+		}
+		if(blocksRand.get(index) instanceof LBlock){
+			LBlock b = new LBlock(startX,startY,existierendenPartikel);
+			 b.getStart().setBottom(bottom);
+			 return b;
+		}
+		if(blocksRand.get(index) instanceof OBlock){
+			OBlock b = new OBlock(startX,startY,existierendenPartikel);
+			 b.getStart().setBottom(bottom);
+			 return b;
+		}
+		if(blocksRand.get(index) instanceof SBlock){
+			SBlock b = new SBlock(startX,startY,existierendenPartikel);
+			 b.getStart().setBottom(bottom);
+			 return b;
+		}
+		if(blocksRand.get(index) instanceof TBlock){
+			TBlock b = new TBlock(startX,startY,existierendenPartikel);
+			 b.getStart().setBottom(bottom);
+			 return b;
+		}
+		if(blocksRand.get(index) instanceof ZBlock){
+			ZBlock b = new ZBlock(startX,startY,existierendenPartikel);
+			 b.getStart().setBottom(bottom);
+			 return b;
+		}
 		return blocksRand.get(index);
+		}
+		return null;
+		
+		
 	}
 	
 	/**

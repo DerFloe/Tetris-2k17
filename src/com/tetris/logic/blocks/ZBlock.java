@@ -26,8 +26,9 @@ public class ZBlock extends Block{
 	private ParticleWithPosition p2;
 	private ParticleWithPosition p3;
 	
-	public ZBlock(int x, int y) {
+	public ZBlock(int x, int y, List<ParticleWithPosition> existierendenPartikel) {
 		// TODO Auto-generated constructor stub
+		super(existierendenPartikel);
 		this.particles=new ArrayList<>();
 		this.start=new FallingParticle(Color.RED, x, y);
 		
@@ -66,7 +67,7 @@ public class ZBlock extends Block{
 		return particles;
 	}
 	
-	public void update() {
+	public void updateParticles() {
 		start.update();
 		p1.update();
 		p2.update();

@@ -19,13 +19,14 @@ public class JBlock extends Block{
 	/**
 	 * 
 	 */
-	private ArrayList<ParticleWithPosition> particles;
+
 	private FallingParticle start;
 	private ParticleWithPosition p1;
 	private ParticleWithPosition p2;
 	private ParticleWithPosition p3;
 	
-	public JBlock(int x, int y) {
+	public JBlock(int x, int y, List<ParticleWithPosition> existierendenPartikel) {
+		super(existierendenPartikel);
 		// TODO Auto-generated constructor stub
 		this.particles=new ArrayList<>();
 		this.start=new FallingParticle(Color.BLUE, x , y);
@@ -117,15 +118,12 @@ public class JBlock extends Block{
 		this.p3 = p3;
 	}
 		
-	public void update() {
+	public void updateParticles() {
 		start.update();
 		p1.update();
 		p2.update();
 		p3.update();
 		
 	}
-public List<Rectangle> getRectangles() {
-		
-		return Arrays.asList(start.getR(),p1.getR(),p2.getR(),p3.getR());
-	}
+
 }

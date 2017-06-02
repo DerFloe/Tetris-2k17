@@ -19,14 +19,15 @@ public class TBlock extends Block{
 	/**
 	 * 
 	 */
-	private ArrayList<ParticleWithPosition> particles;
+	
 	private FallingParticle start;
 	private ParticleWithPosition p1;
 	private ParticleWithPosition p2;
 	private ParticleWithPosition p3;
 	
-	public TBlock(int x, int y) {
+	public TBlock(int x, int y, List<ParticleWithPosition> existierendenPartikel) {
 		// TODO Auto-generated constructor stub
+		super(existierendenPartikel);
 		this.particles=new ArrayList<>();
 		this.start=new FallingParticle(Color.AQUA,x,y);
 		
@@ -112,7 +113,7 @@ public class TBlock extends Block{
 		this.p3 = p3;
 	}
 		
-	public void update() {
+	public void updateParticles() {
 		start.update();
 		p1.update();
 		p2.update();
@@ -123,8 +124,5 @@ public class TBlock extends Block{
 		return start;
 	}
 
-	public List<Rectangle> getRectangles() {
-		
-		return Arrays.asList(start.getR(),p1.getR(),p2.getR(),p3.getR());
-	}
+
 }
