@@ -115,14 +115,14 @@ public class Main extends Application {
 			root.getChildren().add(infob);*/
 			
 			
-			btnStart.setLayoutX(540);
+			btnStart.setLayoutX(500);
 			btnStart.setLayoutY(180);
 			
 			
-			btnSettings.setLayoutX(540);
+			btnSettings.setLayoutX(500);
 			btnSettings.setLayoutY(250);
 			
-			btnEnd.setLayoutX(540);
+			btnEnd.setLayoutX(500);
 			btnEnd.setLayoutY(320);
 			
 			btnStart.setOnAction(new EventHandler<ActionEvent>(){
