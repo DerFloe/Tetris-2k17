@@ -15,7 +15,7 @@ public abstract class Block {
 	public static int objects;
 	public int number;
 	 private final List<int[][]> blockMatrix = new ArrayList<>();
-	 private List<ParticleWithPosition> existierendenPartikel;
+	 protected List<ParticleWithPosition> existierendenPartikel;
 	 
 	 private int linksRechtsWunsch = 0; // 0 kein Wunsch, -1 heisst links, 1 heisst rechts
 	public Block(List<ParticleWithPosition> existierendenPartikel) {

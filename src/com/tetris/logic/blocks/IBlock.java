@@ -96,7 +96,7 @@ public class IBlock extends Block{
 	}
 		
 	public void updateParticles() {
-		start.update();
+		start.update(existierendenPartikel);
 		p3.update();
 		p2.update();
 		p1.update();

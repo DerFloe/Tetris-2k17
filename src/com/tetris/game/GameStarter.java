@@ -201,6 +201,8 @@ public class GameStarter extends Application {
 		}
 		if(current instanceof JBlock){
 			if(((JBlock)current).getStart().groundReached(existierendenPartikel)){
+				root.getChildren().removeAll(current.getRectangles());
+				currentToBg(current);
 				current=randomBlock();
 				drawBlock();
 				System.out.println("JBLOCK Reached Ground");
@@ -208,6 +210,8 @@ public class GameStarter extends Application {
 		}
 		if(current instanceof LBlock){
 			if(((LBlock)current).getStart().groundReached(existierendenPartikel)){
+				root.getChildren().removeAll(current.getRectangles());
+				currentToBg(current);
 				current=randomBlock();
 				drawBlock();
 				System.out.println("LBLOCK Reached Ground");
@@ -215,6 +219,8 @@ public class GameStarter extends Application {
 		}
 		if(current instanceof OBlock){
 			if(((OBlock)current).getStart().groundReached(existierendenPartikel)){
+				root.getChildren().removeAll(current.getRectangles());
+				currentToBg(current);
 				current=randomBlock();
 				drawBlock();
 				System.out.println("OBLOCK Reached Ground");
@@ -222,12 +228,16 @@ public class GameStarter extends Application {
 		}
 		if(current instanceof SBlock){
 			if(((SBlock)current).getStart().groundReached(existierendenPartikel)){
+				root.getChildren().removeAll(current.getRectangles());
+				currentToBg(current);
 				current=randomBlock();
 				System.out.println("SBLOCK Reached Ground");
 			}
 		}
 		if(current instanceof TBlock){
 			if(((TBlock)current).getStart().groundReached(existierendenPartikel)){
+				root.getChildren().removeAll(current.getRectangles());
+				currentToBg(current);
 				current=randomBlock();
 				drawBlock();
 				System.out.println("TBLOCK Reached Ground");
@@ -236,6 +246,8 @@ public class GameStarter extends Application {
 		
 		if(current instanceof ZBlock){
 			if(((ZBlock)current).getStart().groundReached(existierendenPartikel)){
+				root.getChildren().removeAll(current.getRectangles());
+				currentToBg(current);
 				current=randomBlock();
 				drawBlock();
 				System.out.println("ZBLOCK Reached Ground");

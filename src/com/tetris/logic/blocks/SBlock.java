@@ -101,7 +101,7 @@ public class SBlock extends Block{
 	}
 		
 	public void updateParticles() {
-		start.update();
+		start.update(existierendenPartikel);
 		p1.update();
 		p2.update();
 		p3.update();

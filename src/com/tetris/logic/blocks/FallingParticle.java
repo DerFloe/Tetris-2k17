@@ -21,6 +21,7 @@ public class FallingParticle extends ParticleWithPosition {
 	}
 	public void update(List<ParticleWithPosition> existierendenPartikel) {
 	if(groundReached(existierendenPartikel)==false) {
+		System.out.println("Hallo");
 	y-= 0.05f;
 	}else{
 		y=0;
@@ -29,7 +30,7 @@ public class FallingParticle extends ParticleWithPosition {
 }
 	
 	public boolean groundReached(List<ParticleWithPosition> existierendenPartikel){
-	if(y<=0||this.istKollidiert(existierendenPartikel)==true){
+	if(y<=0||istKollidiert(existierendenPartikel)){
 		return true;
 	}
 	return false;
