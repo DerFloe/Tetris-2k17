@@ -11,13 +11,20 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DialogEvent;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -34,13 +41,14 @@ public class Main extends Application {
     private double time;
     
     
+    
     @Override
 	public void start(Stage primaryStage) {
 		try {// bsdfsas
 			
 			Button infob=new Button();
-			Media m = new Media(Paths.get("sound1.mp3").toUri().toString());
-			MediaPlayer mPlayer=new MediaPlayer(m);
+		//	Media m = new Media(Paths.get("sound1.mp3").toUri().toString());
+			//MediaPlayer mPlayer=new MediaPlayer(m);
 			
 			infob.setText("Read Before Playing");
 			infob.setTextFill(Color.RED);
@@ -50,8 +58,8 @@ public class Main extends Application {
 
 			@Override
 			public void handle(ActionEvent event) {
-				mPlayer.stop();
-				mPlayer.play();
+		//		mPlayer.stop();
+			//	mPlayer.play();
 			Alert info = new Alert(AlertType.INFORMATION);
 			info.setTitle("Information");
 			info.setContentText("The game is currently under developement and the code is not in its final state. There might be a few bugs.");
@@ -60,7 +68,7 @@ public class Main extends Application {
 				@Override
 				public void handle(DialogEvent event) {
 					// TODO Auto-generated method stub
-					mPlayer.stop();
+				//	mPlayer.stop();
 				}
 				
 			});
@@ -71,27 +79,52 @@ public class Main extends Application {
 			}
 			});
 			
+			Pane root= new Pane();
+			
 			Button btnStart=new Button();
 			btnStart.setText("> Spiel starten <");
+			btnStart.setId("btnStart");
 			Button btnSettings=new Button();
 			btnSettings.setText("> Einstellungen <");
+			btnSettings.setId("btnOptions");
 			Button btnEnd=new Button();
 			btnEnd.setText("> Spiel beenden <");
+			btnEnd.setId("btnEnde");
 			double buttonsize=250;
-			StackPane root = new StackPane();
 			btnStart.setMinWidth(buttonsize);
 			btnSettings.setMinWidth(buttonsize);
 			btnEnd.setMinWidth(buttonsize);
 			infob.setMinWidth(buttonsize);
-			infob.setTranslateY(-90);
-			btnStart.setTranslateY(-45);
-			btnEnd.setTranslateY(+45);
 			
-			root.getChildren().add(btnStart);
+			//*******************************************************
+			//BorderPane
+			//BorderPane bP = new BorderPane();
+			
+			
+			//GRIDPANE
+			/*GridPane gripP = new GridPane();
+			gripP.setPadding(new Insets(30,30,30,30));
+			
+			gripP.add(btnStart, 10,30);*/
+			
+			
+			/*.getChildren().add(btnStart);
 			
 			root.getChildren().add(btnSettings);
 			root.getChildren().add(btnEnd);
-			root.getChildren().add(infob);
+			root.getChildren().add(infob);*/
+			
+			
+			btnStart.setLayoutX(540);
+			btnStart.setLayoutY(180);
+			
+			
+			btnSettings.setLayoutX(540);
+			btnSettings.setLayoutY(250);
+			
+			btnEnd.setLayoutX(540);
+			btnEnd.setLayoutY(320);
+			
 			btnStart.setOnAction(new EventHandler<ActionEvent>(){
 
 				@Override
@@ -150,14 +183,21 @@ public class Main extends Application {
 			});
 			
 			
-
-			
-			Scene scene = new Scene(root,400,400);
+			root.getChildren().add(btnStart);
+			root.getChildren().add(btnEnd);
+			root.getChildren().add(btnSettings);
+			String  style= getClass().getResource("application.css").toExternalForm();
+			root.getStylesheets().add(style);
+			root.setId("background");
+			Scene scene = new Scene(root,790,500);
 //			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Tetris 2k17");
+			primaryStage.setResizable(false);
+			//scene.getStylesheets().add(style);
+			
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -173,8 +213,8 @@ public class Main extends Application {
     
  
 	public static void main(String[] args) {
-		Media m = new Media(Paths.get("startup.mp3").toUri().toString());
-		new MediaPlayer(m).play();
+	//	Media m = new Media(Paths.get("startup.mp3").toUri().toString());
+		//new MediaPlayer(m).play();
 		launch(args);
 	}
 }
