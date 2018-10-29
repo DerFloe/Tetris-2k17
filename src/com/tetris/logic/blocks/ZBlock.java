@@ -17,12 +17,6 @@ import javafx.scene.shape.Rectangle;
  */
 public class ZBlock extends Block{
 
-	/**
-	 * 
-	 */
-
-
-	
 	public ZBlock(int x, int y, List<ParticleWithPosition> existierendenPartikel) {
 		// TODO Auto-generated constructor stub
 		super(existierendenPartikel);

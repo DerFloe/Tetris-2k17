@@ -16,7 +16,6 @@ import javafx.scene.shape.Rectangle;
  */
 public class LBlock extends Block{
 
-
 	public LBlock(int x, int y, List<ParticleWithPosition> existierendenPartikel) {
 		// TODO Auto-generated constructor stub
 		super(existierendenPartikel);

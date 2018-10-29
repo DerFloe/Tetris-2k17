@@ -16,12 +16,6 @@ import javafx.scene.shape.Rectangle;
  */
 public class OBlock extends Block{
 
-	/**
-	 * 
-	 */
-	
-
-	
 	public OBlock(int x, int y, List<ParticleWithPosition> existierendenPartikel) {
 		super(existierendenPartikel);
 		// TODO Auto-generated constructor stub
