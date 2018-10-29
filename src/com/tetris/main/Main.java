@@ -147,13 +147,11 @@ public class Main extends Application {
 			root.getStylesheets().add(style);
 			root.setId("background");
 			Scene scene = new Scene(root,790,500);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Tetris 2k17");
 			primaryStage.setResizable(false);
-			//scene.getStylesheets().add(style);
 			
 			primaryStage.show();
 		} catch(Exception e) {
@@ -161,17 +159,11 @@ public class Main extends Application {
 		}
 	}
 	
-	
-//	private Parent godMethod(){
-//		Pane root=new Pane();
-//		root.setPrefSize(GRID_WIDTH * TILE SIZE, prefHeight);
-//	}
+
     
     
  
 	public static void main(String[] args) {
-	//	Media m = new Media(Paths.get("startup.mp3").toUri().toString());
-		//new MediaPlayer(m).play();
 		launch(args);
 	}
 }
