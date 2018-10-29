@@ -31,10 +31,7 @@ public class OBlock extends Block{
 		this.p1=new ParticleWithPosition(Color.YELLOW,0,0);
 		this.p2=new ParticleWithPosition(Color.YELLOW,0,0);
 		this.p3=new ParticleWithPosition(Color.YELLOW,0,0);
-		
-		
-		
-		
+
 		this.p2.setUeber(this.start);
 		this.p3.setLinksVon(this.start);
 		this.p1.setLinksVon(this.p2);
