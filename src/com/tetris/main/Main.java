@@ -47,19 +47,13 @@ public class Main extends Application {
 		try {// bsdfsas
 			
 			Button infob=new Button();
-		//	Media m = new Media(Paths.get("sound1.mp3").toUri().toString());
-			//MediaPlayer mPlayer=new MediaPlayer(m);
 			
 			infob.setText("Read Before Playing");
 			infob.setTextFill(Color.RED);
-//			infob.setStyle("-fx-background-radius: 20em; " + "-fx-min-width: 23px; " + "-fx-min-height: 23px; "
-//			+ "-fx-max-width: 23px; " + "-fx-max-height: 23px; " + "-fx-background-color: lightblue; ");
 			infob.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
-		//		mPlayer.stop();
-			//	mPlayer.play();
 			Alert info = new Alert(AlertType.INFORMATION);
 			info.setTitle("Information");
 			info.setContentText("The game is currently under developement and the code is not in its final state. There might be a few bugs.");
@@ -68,7 +62,6 @@ public class Main extends Application {
 				@Override
 				public void handle(DialogEvent event) {
 					// TODO Auto-generated method stub
-				//	mPlayer.stop();
 				}
 				
 			});
@@ -95,26 +88,7 @@ public class Main extends Application {
 			btnSettings.setMinWidth(buttonsize);
 			btnEnd.setMinWidth(buttonsize);
 			infob.setMinWidth(buttonsize);
-			
-			//*******************************************************
-			//BorderPane
-			//BorderPane bP = new BorderPane();
-			
-			
-			//GRIDPANE
-			/*GridPane gripP = new GridPane();
-			gripP.setPadding(new Insets(30,30,30,30));
-			
-			gripP.add(btnStart, 10,30);*/
-			
-			
-			/*.getChildren().add(btnStart);
-			
-			root.getChildren().add(btnSettings);
-			root.getChildren().add(btnEnd);
-			root.getChildren().add(infob);*/
-			
-			
+
 			btnStart.setLayoutX(500);
 			btnStart.setLayoutY(180);
 			
@@ -135,23 +109,6 @@ public class Main extends Application {
 				}
 				
 			});
-//			btnStart.setOnAction(new EventHandler<ActionEvent>() {
-				 
-//	            @Override
-//	            public void handle(ActionEvent event) {
-//	                System.out.println("Game started!");
-//	                StackPane root2=new StackPane();
-//	                Scene scene =new Scene(root2,1280,720);
-//	                primaryStage.setScene(scene);
-//	                Tetris2k17 t=new Tetris2k17();
-//	                try {
-//						t.start(primaryStage);
-//					} catch (Exception e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//	            }
-//	        });
 			
 			btnSettings.setOnAction(new EventHandler<ActionEvent>() {
 				 
