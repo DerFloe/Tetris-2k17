@@ -29,8 +29,6 @@ public class CommandsXGamefield {
 	private int yAxe;
 	
 	public CommandsXGamefield(int xAxe, int yAxe) {
-		
-		
 		this.xAxe = xAxe;
 		this.yAxe = yAxe;
 		this.fields = new ParticleWithPosition[yAxe][xAxe];
@@ -40,41 +38,19 @@ public class CommandsXGamefield {
 		this(12,21);
 	}
 
-
-	
-	
 	public Pane generateGamefield(){
 			GameStarter m=new GameStarter(12,21);
-			
 			Pane pane = new Pane();
-			
-			
 			int gapy=0;
 		    for(int y=0;y<=yAxe-1;y++){
-		    	
-		    	for(int x=0;x<=xAxe-1;x++){
-		    		
-		    		
+	    	for(int x=0;x<=xAxe-1;x++){
 		    		m.fields[y][x]=new ParticleWithPosition(Color.WHITE, x, y);
-		    		
-
 		    		int indexNr=y+x;
-		    		
 		    		pane.getChildren().add(m.fields[y][x].getR());
 		    		System.out.print("O");
-		    		
 		    	}
 		    	System.out.println("");
-
-		    	
-		    
-	    	
 		    }
-		    
-		
-		   
-		//    m.summonBlock(1, 1, Color.BLACK, root);
-			
 			return pane;
 			
 		
