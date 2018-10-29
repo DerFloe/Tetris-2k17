@@ -17,10 +17,6 @@ import javafx.scene.shape.Rectangle;
  */
 public class IBlock extends Block{
 
-	/**
-	 * 
-	 */
-
 	public IBlock(int x, int y, List<ParticleWithPosition> existierendenPartikel){
 		super(existierendenPartikel);
 		// TODO Auto-generated constructor stub

@@ -14,9 +14,6 @@ import javafx.scene.shape.Rectangle;
  */
 public class Particle {
 
-	/**
-	 * 
-	 */
 	private static int counter = -1;
 
 	    // Instanzvariable
