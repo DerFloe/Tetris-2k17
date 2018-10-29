@@ -57,21 +57,15 @@ public class CommandsXGamefield {
 		    		
 		    		m.fields[y][x]=new ParticleWithPosition(Color.WHITE, x, y);
 		    		
-		    		
-		    		
-//		    		field[gapx][gapy]=p;
+
 		    		int indexNr=y+x;
-//		    		System.out.println("Gamefield particle: ["+i+"/"+o+"] summoned index: "+m.fields[i][o].getNum());
 		    		
 		    		pane.getChildren().add(m.fields[y][x].getR());
-		    	
-//		    		System.out.println("Gamefield particle : ["+i+"/"+o+"] added to Array");
 		    		System.out.print("O");
 		    		
 		    	}
 		    	System.out.println("");
-		    
-//		    	root.getChildren().addAll(field);
+
 		    	
 		    
 	    	

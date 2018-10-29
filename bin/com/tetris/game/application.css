@@ -1,0 +1,6 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#pane{
+   -fx-background-image: url("background_image.jpg");
+   -fx-background-repeat: stretch;   
+   -fx-background-position: center center;
+}
